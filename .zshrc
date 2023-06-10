@@ -1,154 +1,183 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-#
-export TERM='xterm-256color'
+# ----------------------------------- ENV -----------------------------------
 
-export ZSH=/home/a2chan/.oh-my-zsh
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/aadeshchandra/.oh-my-zsh"
 
-# ZSH_THEME="powerlevel10k/powerlevel10k"
+# default to dev aws profile 
+export AWS_PROFILE=dev-sso-profile
+export SSH_KEY_PATH="~/.ssh"
+
+
+# sublime as default editor
+export EDITOR='subl -w'
+
+
+# ----------------------------------- ZSH -----------------------------------
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
 # ZSH_THEME="spaceship"
-# spaceship, oxide, geometry, ys, agnoster
-# POWERLEVEL9K_MODE='nerdfont-complete'
-
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-#spaceship
-SPACESHIP_PROMPT_ORDER=(
-  time          # Time stamps section
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  # package       # Package version
-  node          # Node.js section
-  xcode         # Xcode section
-  golang        # Go section
-  docker        # Docker section
-  aws           # Amazon Web Services section
-  venv          # virtualenv section
-  conda         # conda virtualenv section
-  pyenv         # Pyenv section
-  # ember         # Ember.js section
-  # kubecontext   # Kubectl context section
-  terraform     # Terraform workspace section
-  exec_time     # Execution time
-  line_sep      # Line break
-  battery       # Battery level and status
-  vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
-)
-# SPACESHIP_PROMPT_ADD_NEWLINE="true"
-# SPACESHIP_PROMPT_SEPARATE_LINE="true"
 
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git zsh-syntax-highlighting zsh-autosuggestions git-open
-)
+# ----------------------------------- SOURCE -----------------------------------
 
-# Declare the variable
-typeset -A ZSH_HIGHLIGHT_PATTERNS
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
-# To have commands starting with `rm -rf` in red:
-ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=red,bold,bg=clear')
-# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+source $HOME/.cargo/env
 
 source $ZSH/oh-my-zsh.sh
 
 
-# User configuration
+# ----------------------------------- PATH -----------------------------------
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-export AWS_PROFILE=a2chan
-export SSH_KEY_PATH="~/.ssh"
-export PATH=~/.local/bin:$PATH
-export PATH=/snap/bin:$PATH
-export PATH=/snap/bin:$PATH
-export PATH=/home/a2chan/.cargo/bin:$PATH
-# export PATH=~/anaconda3/bin:$PATH
+# go binary
 export PATH=/usr/local/go/bin:$PATH
-export GOPATH=$HOME/go
 
-# source "$(navi widget zsh)"
+# deno binary
+export PATH=$HOME/.deno/bin:$PATH
+
+# mysql binary
+export PATH=/usr/local/mysql/bin:$PATH
+
+# Volta binary
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# sublime
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+
+# brew
+export PATH=/opt/homebrew/bin:$PATH
+
+#postgres
+export PATH=/Library/PostgreSQL/15/bin:$PATH
+export PGCONFIG=/Library/PostgreSQL/15/bin/pg_config
+export PGUSER=postgres
+export PGDATA=/Library/PostgreSQL/15/data
+
+export PATH=/usr/local/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/aadeshchandra/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+# Bun
+export BUN_INSTALL="/Users/aadeshchandra/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+# export PATH=/Users/aadeshchandra/.local/bin:$PATH
+
+
+
+# ----------------------------------- ALIAS -----------------------------------
+
 
 alias git-graph="git log --all --decorate --oneline --graph"
+alias git-yeet="git reset --hard HEAD && git clean -fd"
 alias ls="lsd"
-alias c.="code ."
 alias cat="bat"
-alias fd="fdfind"
-alias _pacman="sudo pacman"
 alias help='tldr'
-alias ping='prettyping --nolegend'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias speed-test="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+alias yn="yarn"
+alias pn="pnpm"
+alias dc="docker"
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+alias zed="/Applications/Zed.app"
+
+# ----------------------------------- fzf -----------------------------------
+
 # add support for ctrl+o to open selected file in VS Code
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
+export FZF_DEFAULT_COMMAND="rg --files"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-. /home/a2chan/z/z.sh
+# Options to fzf command
+export FZF_COMPLETION_OPTS='--border --info=inline'
+
+# Use fd (https://github.com/sharkdp/fd) instead of the default find
+# command for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+# (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+    ssh)          fzf "$@" --preview 'dig {}' ;;
+    *)            fzf "$@" ;;
+  esac
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+
+# ----------------------------------- SSH -----------------------------------
+
+# start up ssh-agent on login
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+ssh-add -l > /dev/null || ssh-add
+
+
+# ----------------------------------- pyenv -----------------------------------
+# if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+# fi
+
+
+
+# ----------------------------------- utility functions -----------------------------------
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+
+
+# ----------------------------------- EXTRA -----------------------------------
+
+# disable homebrew from updating on every run
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+
+autoload -U bashcompinit
+bashcompinit
+
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+#   eval "$(pyenv virtualenv-init -)"
+# fi
+
+
+. $HOME/z/z.sh
+
 eval "$(starship init zsh)"
+
+
+# bun completions
+[ -s "/Users/aadeshchandra/.bun/_bun" ] && source "/Users/aadeshchandra/.bun/_bun"
+
+
+
+
+eval "$(atuin init zsh)"
